@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class PaymentDetail extends StatelessWidget {
   const PaymentDetail({super.key});
 
@@ -11,14 +10,28 @@ class PaymentDetail extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: const Icon(Icons.arrow_back, color: Colors.white),
+        // leading: const Icon(Icons.arrow_back, color: Colors.white),
+        foregroundColor: Colors.white,
         title: const Text(
           "ABA ទទូទាត់",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: "Siem Reap",
+            fontWeight: FontWeight.bold,
+          ),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.calendar_today_outlined, color: Colors.white)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search, color: Colors.white)),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.calendar_today_outlined,
+              color: Colors.white,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search, color: Colors.white),
+          ),
         ],
       ),
       body: Stack(
@@ -52,8 +65,15 @@ class PaymentDetail extends StatelessWidget {
                   const SizedBox(height: 20),
                   _buildHeaderInfo(),
                   const SizedBox(height: 30),
-                  const Text("មើលតាមប្រភេទ", 
-                    style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                  const Text(
+                    "មើលតាមប្រភេទ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontFamily: "Siem Reap",
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   const SizedBox(height: 16),
                   GridView.count(
                     shrinkWrap: true,
@@ -61,26 +81,71 @@ class PaymentDetail extends StatelessWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 12,
                     crossAxisSpacing: 12,
-                    childAspectRatio: 1.3, 
+                    childAspectRatio: 1.3,
                     children: [
-                      _buildGridItem(Icons.phone_android, Colors.blue, "បញ្ចូលលុយទូរស័ព្ទ", "សម្រាប់ប្រព័ន្ធ:"),
-                      _buildGridItem(Icons.wifi, Colors.teal, "អ៊ីនធឺណិត", "ទូទាត់សេវាអ៊ីនធឺណិត"),
-                      _buildGridItem(Icons.lightbulb_outline, Colors.blueAccent, "ទឹកភ្លើង & សំរាម", "ទូទាត់វិក្កយបត្រ"),
-                      _buildGridItem(Icons.account_balance, Colors.orange, "រដ្ឋាភិបាល", "បង់ពន្ធ កម្រៃសេវា"),
+                      _buildGridItem(
+                        Icons.phone_android,
+                        Colors.blue,
+                        "បញ្ចូលលុយទូរស័ព្ទ",
+                        "សម្រាប់ប្រព័ន្ធ:",
+                      ),
+                      _buildGridItem(
+                        Icons.wifi,
+                        Colors.teal,
+                        "អ៊ីនធឺណិត",
+                        "ទូទាត់សេវាអ៊ីនធឺណិត",
+                      ),
+                      _buildGridItem(
+                        Icons.lightbulb_outline,
+                        Colors.blueAccent,
+                        "ទឹកភ្លើង & សំរាម",
+                        "ទូទាត់វិក្កយបត្រ",
+                      ),
+                      _buildGridItem(
+                        Icons.account_balance,
+                        Colors.orange,
+                        "រដ្ឋាភិបាល",
+                        "បង់ពន្ធ កម្រៃសេវា",
+                      ),
                     ],
                   ),
 
                   const SizedBox(height: 30),
-                  const Text("សេវាកម្មផ្សេងៗ", 
-                    style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                  const Text(
+                    "សេវាកម្មផ្សេងៗ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   const SizedBox(height: 16),
 
-                  
-                  _buildListItem(Icons.home_work, Colors.purple, "អចលនទ្រព្យ", "ទូទាត់សេវាអចលនទ្រព្យ"),
-                  _buildListItem(Icons.umbrella, Colors.pink, "ធានារ៉ាប់រង", "ទូទាត់សេវាធានារ៉ាប់រង"),
-                  _buildListItem(Icons.monetization_on, Colors.cyan, "ហិរញ្ញវត្ថុ & វិនិយោគ", "កិច្ចសន្យា និងវិនិយោគ"),
-                  _buildListItem(Icons.school, Colors.indigo, "វិស័យអប់រំ", "បង់ថ្លៃសិក្សា"),
-                  const SizedBox(height: 20), 
+                  _buildListItem(
+                    Icons.home_work,
+                    Colors.purple,
+                    "អចលនទ្រព្យ",
+                    "ទូទាត់សេវាអចលនទ្រព្យ",
+                  ),
+                  _buildListItem(
+                    Icons.umbrella,
+                    Colors.pink,
+                    "ធានារ៉ាប់រង",
+                    "ទូទាត់សេវាធានារ៉ាប់រង",
+                  ),
+                  _buildListItem(
+                    Icons.monetization_on,
+                    Colors.cyan,
+                    "ហិរញ្ញវត្ថុ & វិនិយោគ",
+                    "កិច្ចសន្យា និងវិនិយោគ",
+                  ),
+                  _buildListItem(
+                    Icons.school,
+                    Colors.indigo,
+                    "វិស័យអប់រំ",
+                    "បង់ថ្លៃសិក្សា",
+                  ),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
@@ -98,12 +163,22 @@ class PaymentDetail extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("ABA ទទូទាត់", 
-                style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
+              Text(
+                "ABA ទទូទាត់",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               SizedBox(height: 8),
               Text(
                 "បញ្ចូលលុយទូរស័ព្ទ បង់ទឹក ភ្លើង និងសេវាផ្សេងៗ ដោយឥតគិតថ្លៃ",
-                style: TextStyle(color: Colors.white70, fontSize: 14),
+                style: TextStyle(
+                  color: Colors.white70,
+                  fontFamily: "Siem Reap",
+                  fontSize: 14,
+                ),
               ),
             ],
           ),
@@ -111,8 +186,12 @@ class PaymentDetail extends StatelessWidget {
         CircleAvatar(
           radius: 35,
           backgroundColor: Colors.white.withOpacity(0.1),
-          child: const Icon(Icons.payments_outlined, color: Colors.white, size: 40),
-        )
+          child: const Icon(
+            Icons.payments_outlined,
+            color: Colors.white,
+            size: 40,
+          ),
+        ),
       ],
     );
   }
@@ -135,11 +214,24 @@ class PaymentDetail extends StatelessWidget {
             child: Icon(icon, color: Colors.white, size: 20),
           ),
           const SizedBox(height: 12),
-          Text(title, 
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 13)),
-          Text(sub, 
-            style: const TextStyle(color: Colors.white54, fontSize: 10), 
-            overflow: TextOverflow.ellipsis),
+          Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontFamily: "Siem Reap",
+              fontSize: 13,
+            ),
+          ),
+          Text(
+            sub,
+            style: const TextStyle(
+              color: Colors.white54,
+              fontSize: 10,
+              fontFamily: "Siem Reap",
+            ),
+            overflow: TextOverflow.ellipsis,
+          ),
         ],
       ),
     );
@@ -159,11 +251,28 @@ class PaymentDetail extends StatelessWidget {
           decoration: BoxDecoration(color: color, shape: BoxShape.circle),
           child: Icon(icon, color: Colors.white),
         ),
-        title: Text(title, 
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15)),
-        subtitle: Text(sub, 
-          style: const TextStyle(color: Colors.white54, fontSize: 12)),
-        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white24, size: 14),
+        title: Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontFamily: "Siem Reap",
+            fontSize: 15,
+          ),
+        ),
+        subtitle: Text(
+          sub,
+          style: const TextStyle(
+            color: Colors.white54,
+            fontSize: 12,
+            fontFamily: "Siem Reap",
+          ),
+        ),
+        trailing: const Icon(
+          Icons.arrow_forward_ios,
+          color: Colors.white24,
+          size: 14,
+        ),
       ),
     );
   }
