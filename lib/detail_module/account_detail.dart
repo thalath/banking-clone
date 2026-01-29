@@ -11,9 +11,7 @@ class _AccountDetailState extends State<AccountDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(backgroundColor: Colors.transparent),
       backgroundColor: const Color.fromARGB(255, 4, 82, 106),
-
       body: _buildBody(),
     );
   }
@@ -35,7 +33,7 @@ class _AccountDetailState extends State<AccountDetail> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 30),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   IconButton(
@@ -87,7 +85,7 @@ class _AccountDetailState extends State<AccountDetail> {
                         style: TextStyle(color: Colors.white70),
                       ),
                       Text(
-                        '\$398.00',
+                        '\$0.50',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
@@ -100,7 +98,7 @@ class _AccountDetailState extends State<AccountDetail> {
                         style: TextStyle(color: Colors.white70),
                       ),
                       Text(
-                        '៛400,000.00',
+                        '៛400.00',
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ],
@@ -116,9 +114,8 @@ class _AccountDetailState extends State<AccountDetail> {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              accountCard('Savings Account', '4,850.00 USD'),
-              accountCard('Payroll Account', '4,530.00 USD'),
-              accountCard('Savings with ATM', '400,000.00 KHR'),
+              _buildAccount("Savings Account", "2345678 | savings", "0.01 USD"),
+              _buildAccount("Savings Account", "2345678 | savings", "0.01 KHR"),
             ],
           ),
         ),
@@ -137,6 +134,46 @@ class _AccountDetailState extends State<AccountDetail> {
           children: [
             Text(amount, style: const TextStyle(fontWeight: FontWeight.bold)),
             const Icon(Icons.more_horiz),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAccount(String title, String subTitle, String amount) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8.0, top: 0, bottom: 20),
+        child: Stack(
+          children: [
+            Positioned(
+              bottom: -5,
+              right: 10,
+              child: Text(
+                amount,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
+              subtitle: Text(subTitle),
+            ),
+
+            Positioned(
+              right: 10,
+              top: -20,
+              child: Text(
+                "...",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
+              ),
+            ),
           ],
         ),
       ),

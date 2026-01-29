@@ -151,7 +151,7 @@ class _MainABAPageState extends State<MainABAPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 10),
-                    _title("\$10,000.00"),
+                    _title("\$0.50"),
                     SizedBox(height: 5),
                     _title("Default: USD"),
                     SizedBox(height: 5),
