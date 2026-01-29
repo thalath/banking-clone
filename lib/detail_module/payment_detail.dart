@@ -236,6 +236,9 @@ class PaymentDetail extends StatelessWidget {
       ),
     );
   }
+  
+
+  
 
   Widget _buildListItem(IconData icon, Color color, String title, String sub) {
     return Container(
