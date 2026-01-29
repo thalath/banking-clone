@@ -8,15 +8,20 @@ class FavoriteDetail extends StatefulWidget {
 }
 
 class _FavoriteDetailState extends State<FavoriteDetail> {
+  final Color darkNavy = const Color(0xFF0D1B2A);
+  final Color accentTan = const Color(0xFFD4B483);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: darkNavy,
       body: _buildBody(),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-
-        child: Text("New "),
+        backgroundColor: accentTan,
+        icon: const Icon(Icons.add, color: Colors.black),
+        label: const Text("New Scheduled", style: TextStyle(color: Colors.black)),
       ),
     );
   }
@@ -26,33 +31,71 @@ class _FavoriteDetailState extends State<FavoriteDetail> {
       children: [
         Container(
           width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
-              end: Alignment.bottomRight,
+              end: Alignment.bottomCenter,
               colors: [
-                Color.fromRGBO(100, 100, 100, 0.2),
-                Color.fromRGBO(100, 100, 100, 0.4),
-                Color.fromRGBO(100, 100, 100, 0.6),
+                Colors.white.withOpacity(0.1),
+                Colors.transparent,
               ],
             ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 10),
               IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(Icons.arrow_back, color: Colors.white),
               ),
-
-              SizedBox(height: 18),
-              Text(
-                "Transfer to friends quickly or pay bills easily from yout saved Favorites.",
+              const SizedBox(height: 10),
+              const Text(
+                "ABA' Favorites",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                "Transfer to friends quickly or pay bills easily from your saved Favorites.",
+                style: TextStyle(color: Colors.white70, fontSize: 14),
               ),
             ],
+          ),
+        ),
+
+        Expanded(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(30),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.05),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Icon(
+                    Icons.inventory_2_outlined,
+                    size: 80,
+                    color: Colors.white.withOpacity(0.2),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  "No Favorites found",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+                const SizedBox(height: 8),
+                const Text(
+                  "Tap the + button to create a new one.",
+                  style: TextStyle(color: Colors.white38, fontSize: 14),
+                ),
+              ],
+            ),
           ),
         ),
       ],
