@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:assignment_clone/basic_module/main_page.dart'; 
+import 'package:assignment_clone/basic_module/main_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,8 +13,8 @@ class _LoginPageState extends State<LoginPage> {
   final _usernameController = TextEditingController();
   final _pinController = TextEditingController();
   final _confirmPinController = TextEditingController();
-  
-  String _statusText = "";
+
+  // String _statusText = "";
   bool _hidePassword = true;
 
   final _formKey = GlobalKey<FormState>();
@@ -22,10 +22,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Create ABA Account"),
-        backgroundColor: const Color(0xFF1E293B),
-      ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Center(
@@ -40,7 +36,10 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     const Text(
                       " ABA BANK",
-                      style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(height: 30),
 
@@ -54,8 +53,8 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      
-                      keyboardType: TextInputType.text, 
+
+                      keyboardType: TextInputType.text,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Username is required";
@@ -66,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                         return null;
                       },
                     ),
-                     SizedBox(height: 16),
+                    SizedBox(height: 16),
 
                     TextFormField(
                       controller: _pinController,
@@ -85,17 +84,23 @@ class _LoginPageState extends State<LoginPage> {
                             });
                           },
                           icon: Icon(
-                            _hidePassword ? Icons.visibility : Icons.visibility_off,
+                            _hidePassword
+                                ? Icons.visibility
+                                : Icons.visibility_off,
                           ),
                         ),
                       ),
                       validator: (value) {
-                        if (value == null || value.isEmpty) return "Pin is required";
-                        if (value.length < 4) return "Pin must be at least 4 digits";
+                        if (value == null || value.isEmpty) {
+                          return "Pin is required";
+                        }
+                        if (value.length < 4) {
+                          return "Pin must be at least 4 digits";
+                        }
                         return null;
                       },
                     ),
-                     SizedBox(height: 16),
+                    SizedBox(height: 16),
 
                     TextFormField(
                       controller: _confirmPinController,
@@ -115,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                         return null;
                       },
                     ),
-                     SizedBox(height: 24),
+                    SizedBox(height: 24),
 
                     SizedBox(
                       width: double.infinity,
@@ -124,7 +129,9 @@ class _LoginPageState extends State<LoginPage> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF1E293B),
                           foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
