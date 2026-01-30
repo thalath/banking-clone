@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:assignment_clone/basic_module/basic_app.dart';
+import 'package:assignment_clone/state_module/state_provider.dart';
 
 void main() {
-  runApp(const BasicApp());
+  runApp(stateProvider());
 }

@@ -1,6 +1,9 @@
+import 'package:assignment_clone/basic_module/them_icon.dart';
+import 'package:assignment_clone/state_module/theme_logic.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:assignment_clone/basic_module/main_page.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
 
   // String _statusText = "";
   bool _hidePassword = true;
+  bool isDarkMode = true;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -34,6 +38,21 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Center(
+                      child: ThemeToggleButton(
+                        isDarkMode: isDarkMode,
+                        onToggle: () {
+                          setState(() {
+                            isDarkMode = !isDarkMode;
+                          });
+                          if (isDarkMode == true) {
+                            context.read<ThemeLogin>().chaneToDarkMode();
+                          } else {
+                            context.read<ThemeLogin>().changeTOLightMode();
+                          }
+                        },
+                      ),
+                    ),
                     const Text(
                       " ABA BANK",
                       style: TextStyle(

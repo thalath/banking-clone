@@ -1,8 +1,11 @@
-import 'package:assignment_clone/detail_module/payment_detail.dart';
+import '/basic_module/them_icon.dart';
+import '/detail_module/payment_detail.dart';
+import '/state_module/theme_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 
 import '/detail_module/transfer_detail.dart';
 import '/detail_module/promotion_detail.dart';
@@ -27,13 +30,28 @@ class MainABAPage extends StatefulWidget {
 
 class _MainABAPageState extends State<MainABAPage> {
   int _currentIndex = 0;
+  bool isDarkMode = true;
 
   @override
   Widget build(BuildContext context) {
+    // int themeIndex = context.watch<ThemeLogin>().themeIndex;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        foregroundColor: Colors.white,
+        // foregroundColor: Colors.white,
+        leading: ThemeToggleButton(
+          isDarkMode: isDarkMode,
+          onToggle: () {
+            setState(() {
+              isDarkMode = !isDarkMode;
+            });
+            if (isDarkMode == true) {
+              context.read<ThemeLogin>().chaneToDarkMode();
+            } else {
+              context.read<ThemeLogin>().changeTOLightMode();
+            }
+          },
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -57,7 +75,7 @@ class _MainABAPageState extends State<MainABAPage> {
           ),
         ],
       ),
-      backgroundColor: const Color.fromARGB(255, 4, 82, 106),
+      // backgroundColor: const Color.fromARGB(255, 4, 82, 106),
       body: _buildMainBodyView(),
     );
   }
@@ -85,8 +103,8 @@ class _MainABAPageState extends State<MainABAPage> {
       '   $title',
       style: TextStyle(
         fontWeight: FontWeight.bold,
-        color: Colors.white,
-        fontSize: 22,
+        // color: Colors.white,
+        fontSize: 20,
       ),
     );
   }
@@ -130,14 +148,11 @@ class _MainABAPageState extends State<MainABAPage> {
                 title: Text(
                   "Hello, Thalath!",
                   style: TextStyle(
-                    color: Colors.white,
+                    // color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(
-                  "View Profile",
-                  style: TextStyle(color: Colors.grey[200]),
-                ),
+                subtitle: Text("View Profile"),
               ),
             ),
             SizedBox(height: 10),
@@ -145,7 +160,6 @@ class _MainABAPageState extends State<MainABAPage> {
             SizedBox(
               width: double.infinity,
               child: Card(
-                color: Colors.red,
                 margin: const EdgeInsets.all(10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -235,11 +249,11 @@ class _MainABAPageState extends State<MainABAPage> {
   Widget _buildSubTansferIcon(IconData iconData, String title) {
     return TextButton.icon(
       onPressed: () {},
-      label: Text(title, style: TextStyle(color: Colors.black)),
+      label: Text(title),
       icon: CircleAvatar(
         radius: 15,
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
+        // backgroundColor: Colors.black,
+        // foregroundColor: Colors.white,
         child: Icon(iconData),
       ),
     );
@@ -247,7 +261,7 @@ class _MainABAPageState extends State<MainABAPage> {
 
   Widget _buildMiniAppView() {
     return Card(
-      color: Colors.grey[600],
+      // color: Colors.grey[600],
       margin: EdgeInsets.only(left: 15, right: 15, bottom: 10),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
@@ -421,7 +435,7 @@ class _MainABAPageState extends State<MainABAPage> {
       margin: const EdgeInsets.only(right: 10),
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -464,7 +478,7 @@ class _MainABAPageState extends State<MainABAPage> {
           ),
           Text(
             newTitle,
-            style: TextStyle(fontSize: 12, color: Colors.black),
+            // style: TextStyle(fontSize: 12, color: Colors.black),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),

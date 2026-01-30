@@ -45,7 +45,7 @@ class _TransferDetailState extends State<TransferDetail> {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: Colors.pink,
+        // color: Colors.pink,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -77,12 +77,12 @@ class _TransferDetailState extends State<TransferDetail> {
         icon: Icon(Icons.flag_circle),
 
         style: ElevatedButton.styleFrom(
-          iconColor: Colors.black,
+          // iconColor: Colors.black,
           shape: BeveledRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          backgroundColor: Colors.red,
-          foregroundColor: Colors.white,
+          // backgroundColor: Colors.red,
+          // foregroundColor: Colors.white,
         ),
       ),
     );
@@ -128,7 +128,7 @@ class _TransferDetailState extends State<TransferDetail> {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.pink,
+        // color: Colors.pink,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -161,7 +161,7 @@ class _TransferDetailState extends State<TransferDetail> {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
-            color: Colors.grey,
+            // color: Colors.grey,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(

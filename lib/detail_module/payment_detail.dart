@@ -36,12 +36,12 @@ class PaymentDetail extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          Positioned.fill(
-            child: Image.network(
-              'https://i.pinimg.com/736x/e7/b6/35/e7b6357d27107fd0e12f1a654dd0b650.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
+          // Positioned.fill(
+          //   child: Image.network(
+          //     'https://i.pinimg.com/736x/e7/b6/35/e7b6357d27107fd0e12f1a654dd0b650.jpg',
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
